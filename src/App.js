@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Footer from './components/Footer/Footer';
+import Navbar from './components/Navbar'; 
+import NewsContent from './components/NewsContent/NewsContent'
+import apiKey from './data/config';
 
 function App() {
+
+  const [category , setCategory] = useState("general");
+  const [newsArray , setNewsArray] = useState([]);
+  const [newsResult , setNewsResult] = useState();
+  const [loadmore , setLoadmore] = useState(20);
+
+
+  const newsApi = async() => {
+    try {
+      const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=${category}&pageSize=${loadmore}`);
+      setNewsArray(news.data.articles);
+      setNewsResult(news.data.totalResults);
+
+    }
+    catch(error) {
+      console.log(error);
+    }
+  };
+
+  console.log(newsArray); 
+
+  useEffect(() => {
+    newsApi();
+  } ,[newsResult,category,loadmore]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar setCategory = {setCategory}/>
+      <NewsContent setLoadmore={setLoadmore} loadmore = {loadmore} newsArray ={newsArray} newsResult= {newsResult} />
+      <Footer/>
     </div>
   );
 }
