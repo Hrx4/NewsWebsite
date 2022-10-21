@@ -19,7 +19,6 @@ function App() {
       const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=${category}&pageSize=${loadmore}`);
       setNewsArray(news.data.articles);
       setNewsResult(news.data.totalResults);
-
     }
     catch(error) {
       console.log(error);
@@ -29,13 +28,16 @@ function App() {
   console.log(newsArray); 
 
   useEffect(() => {
-    newsApi();
+    newsApi();// eslint-disable-next-line
   } ,[newsResult,category,loadmore]);
 
   return (
     <div className="App">
       <Navbar setCategory = {setCategory}/>
-      <NewsContent setLoadmore={setLoadmore} loadmore = {loadmore} newsArray ={newsArray} newsResult= {newsResult} />
+      <NewsContent setLoadmore={setLoadmore}
+      loadmore = {loadmore} 
+      newsArray ={newsArray} 
+      newsResult= {newsResult} />
       <Footer/>
     </div>
   );
