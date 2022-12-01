@@ -7,3 +7,39 @@
 .icon{
     flex: .48;
 }
+
+.dropdown {
+   width: 50px;
+    height: 30px;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 30%;
+    margin-right: auto;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px 6px rgba(0,0,0,0.06);
+    font-weight: bold;
+    text-align: center;
+   
+}
+
+.dropdown .dropdown-content{
+    background: white;
+    color: black;
+    /* display: block; */
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    /* padding: 5px; */
+
+    
+}
+.dropdown .dropdown-content .dropdown-item{
+   
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.dropdown .dropdown-content .dropdown-item:hover{
+    background: gray;
+}
