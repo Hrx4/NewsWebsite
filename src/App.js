@@ -17,10 +17,10 @@ function App() {
 
   const newsApi = async() => {
     try {
-      const news = await axios.get(`https://api.newscatcherapi.com/v2/latest_headlines?topic=${category}&countries=${country}&page_size=${loadmore}&lang=en`
+      const news = await axios.get(`https://api.newscatcherapi.com/v2/latest_headlines?topic=${category}&countries=${country}&page_size=${loadmore}`
       ,{
         headers: {
-          'x-api-key': '-KkYVHHK89ASSd41GmKwrDZLS1NkSS7X_G9jQYx1DQ0'
+          'x-api-key': 'x2vGkk2x2cFXEeP3sOjpTvfdv-jjd-hVKW6-ikK4aF4'
         }
       });
       setNewsArray(news.data.articles);
