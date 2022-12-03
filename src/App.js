@@ -17,7 +17,7 @@ function App() {
 
   const newsApi = async() => {
     try {
-      const news = await axios.get(`https://api.newscatcherapi.com/v2/latest_headlines?topic=${category}&countries=${country}&page_size=${loadmore}`
+      const news = await axios.get(`https://api.newscatcherapi.com/v2/latest_headlines?topic=${category}&countries=${country}&page_size=${loadmore}&lang=en`
       ,{
         headers: {
           'x-api-key': 'x2vGkk2x2cFXEeP3sOjpTvfdv-jjd-hVKW6-ikK4aF4'
