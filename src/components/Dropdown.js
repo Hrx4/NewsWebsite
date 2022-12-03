@@ -5,11 +5,11 @@ import React, { useState } from 'react'
 const Dropdown = ({selected , setSelected,setCountry}) => {
     const [isActive , setIsActive] = useState(false);
     const options = [
-        {countryName : "India", codeName: "in"},
-        {countryName : "USA", codeName: "us"},
-        {countryName : "UK", codeName: "gb"},
-        {countryName : "South Korea", codeName: "kr"},
-        {countryName : "Chaina", codeName: "cn"}
+        {countryName : "India", codeName: "IN"},
+        {countryName : "USA", codeName: "US"},
+        {countryName : "UK", codeName: "GB"},
+        {countryName : "South Korea", codeName: "KR"},
+        {countryName : "Chaina", codeName: "CN"}
     ];
  
     return (

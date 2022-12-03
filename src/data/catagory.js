@@ -1,10 +1,10 @@
 const catagories = [
     "business",
     "entertainment",
-    "general",
-    "health",
+    "news",
+    "finance",
     "science",
-    "sports",
-    "technology",
+    "sport",
+    "tech",
 ];
 export default catagories;

@@ -4,20 +4,25 @@ import './App.css';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar'; 
 import NewsContent from './components/NewsContent/NewsContent'
-import apiKey from './data/config';
+// import apiKey from './data/config';
 
 function App() {
 
-  const [category , setCategory] = useState("general");
+  const [category , setCategory] = useState("news");
   const [newsArray , setNewsArray] = useState([]);
   const [newsResult , setNewsResult] = useState();
   const [loadmore , setLoadmore] = useState(20);
-  const [country , setCountry] = useState('in');
+  const [country , setCountry] = useState('IN');
 
 
   const newsApi = async() => {
     try {
-      const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apiKey}&category=${category}&pageSize=${loadmore}`);
+      const news = await axios.get(`https://api.newscatcherapi.com/v2/latest_headlines?topic=${category}&countries=${country}&page_size=${loadmore}&lang=en`
+      ,{
+        headers: {
+          'x-api-key': '-KkYVHHK89ASSd41GmKwrDZLS1NkSS7X_G9jQYx1DQ0'
+        }
+      });
       setNewsArray(news.data.articles);
       setNewsResult(news.data.totalResults);
     }
